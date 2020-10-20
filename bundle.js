@@ -1,6 +1,7 @@
 let graphics;
 let clouds;
 let mountains;
+let ball;
 
 window.onload = function() {
     console.log("HTML5 Canvas API for Games");
@@ -8,7 +9,9 @@ window.onload = function() {
     graphics.makeFullScreen();
     clouds = new Clouds(graphics);
     mountains = new Mountains(graphics);
-    this.setInterval(update, 1000/60);
+    ball = new Ball(graphics);
+    addEventListener("keydown", keyPressed);
+    setInterval(update, 1000/60);
 }
 
 function update() {
@@ -22,7 +25,15 @@ function drawEverything() {
     graphics.fillCanvas(gradient);
     clouds.draw();
     mountains.draw();
+    ball.draw();
 }
 
 function moveEverything() {
+    ball.move();
+}
+
+function keyPressed(event) {
+    if ( event.keyCode == 32 ) {
+        ball.up();
+    }
 }
