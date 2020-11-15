@@ -15,7 +15,7 @@ class Pipes {
 
     move() {
         this.frameCount++;
-        if ( this.frameCount % 120 == 0 ) {
+        if ( this.frameCount % 60 == 0 ) {
             this.elements.push(new Pipe(this.fx));
         }
 
@@ -36,7 +36,7 @@ class Pipe {
         this.bottom = 0;
         this.xpos = 0;
         this.width = 60;
-        this.speed = 2;
+        this.speed = 4;
         this.fx = graphics;
         this.color1 = "cccccc";
         this.color2 = "#555555";
